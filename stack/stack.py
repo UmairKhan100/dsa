@@ -4,11 +4,11 @@ class Stack():
         self.size = size
         self.top = -1
 
-    def push(self, item):
+    def push(self, data):
         if self.top < self.size - 1:
-            self.stack.append(item)
+            self.stack.append(data)
             self.top += 1
-            print(f'item {item} is pushed into the stack')
+            print(f'{data} pushed to stack')
         else:
             print('stack overflow')
 
@@ -16,10 +16,10 @@ class Stack():
         if self.is_empty():
             print('stack underflow')
         else:
-            item = self.stack[self.top]
+            data = self.stack[self.top]
             self.top -= 1
-            print(f'item {item} is popped from the stack')
-            return item
+            print(f'{data} popped from stack')
+            return data
 
     def peek(self):
         if self.is_empty():
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     s.pop()
     s.push(33)
     s.push(22)
-    print(f'top item: {s.peek()}')
+    print(f'top data: {s.peek()}')
     s.push(11)
     s.push(55)
     s.pop()

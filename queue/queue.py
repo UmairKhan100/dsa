@@ -5,22 +5,22 @@ class Queue():
         self.front = 0
         self.rear = -1
     
-    def enqueue(self, item):
+    def enqueue(self, data):
         if self.rear == self.size - 1:
             print('queue is full')
         else:
             self.rear += 1
-            self.queue.append(item)
-            print(f'{item} enqueued to queue')
+            self.queue.append(data)
+            print(f'{data} enqueued to queue')
 
     def dequeue(self):
         if self.is_empty():
             print('queue is empty')
         else:
-            item = self.queue.pop(self.front)
+            data = self.queue.pop(self.front)
             self.rear -= 1
-            print(f'{item} dequeued from queue')
-            return item
+            print(f'{data} dequeued from queue')
+            return data
 
     def peek(self):
         if self.is_empty():
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     q.dequeue()
     q.enqueue(33)
     q.enqueue(22)
-    print(f'front item: {q.peek()}')
+    print(f'front data: {q.peek()}')
     q.enqueue(11)
     q.enqueue(55)
     q.dequeue()
