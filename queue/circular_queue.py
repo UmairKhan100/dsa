@@ -1,6 +1,6 @@
 class CircularQueue():
     def __init__(self, size):
-        self.queue = []
+        self.queue = [None] * size
         self.size = size
         self.front = -1
         self.rear = -1
@@ -9,7 +9,7 @@ class CircularQueue():
         if self.is_full():
             print('queue is full')
         else:
-            if (self.front == -1):
+            if self.front == -1:
                 self.front = 0
             self.rear = (self.rear + 1) % self.size
             self.queue[self.rear] = data
@@ -19,7 +19,8 @@ class CircularQueue():
         if self.is_empty():
             print('queue is empty')
         else:
-            data = self.queue.pop(self.front)
+            data = self.queue[self.front]
+            self.queue[self.front] = None
             if self.front == self.rear:
                 self.front = -1
                 self.rear = -1
@@ -40,19 +41,18 @@ class CircularQueue():
         else:
             i = self.front
             print(f'queue content:', end=' ')
-            while i != self.rear:
+            while True:
                 print(self.queue[i], end=' ')
+                if i == self.rear:
+                    break
                 i = (i + 1) % self.size
+            print()
 
     def is_empty(self):
         return self.front == -1
         
     def is_full(self):
-        if self.front == 0 and self.rear == self.size - 1:
-            return True
-        elif self.front == self.rear + 1:
-            return True
-        return False
+        return (self.rear + 1) % self.size == self.front
         
 if __name__ == '__main__':
     cq = CircularQueue(3)
