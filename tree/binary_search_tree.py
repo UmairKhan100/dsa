@@ -4,9 +4,9 @@ class Node:
         self.left: Node = None
         self.right: Node = None
 
-class BinaryTree():
+class BinarySearchTree():
     def __init__(self):
         self.root: Node = None
 
 if __name__ == '__main__':
-    bt = BinaryTree()
+    bst = BinarySearchTree()
