@@ -38,6 +38,9 @@ class BinarySearchTree():
                 current = current.right
         return False
 
+    def delete(self, data):
+        pass
+
 if __name__ == '__main__':
     bst = BinarySearchTree()
     bst.insert(5)
@@ -46,3 +49,5 @@ if __name__ == '__main__':
     bst.display(bst.root)
     print()
     print(bst.find(4))
+    bst.delete(5)
+    bst.display(bst.root)
